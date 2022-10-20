@@ -1,0 +1,39 @@
+.tiket{
+    width: 502px;
+    height: 147px;
+    background: white;
+    padding: 26px 20px 32px 20px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 5px;
+    margin: 0 0 21px 0;
+}
+
+.tiket__price{
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    color: #2196F3;
+}
+
+.tiket__info{
+    display: flex;
+    justify-content: space-between;
+    margin: 26px 0 0 0;
+}
+
+.tiket__head{
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #A0B0B9;
+}

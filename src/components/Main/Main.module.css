@@ -1,0 +1,7 @@
+
+.main__wrapper{ 
+    width: 750px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
