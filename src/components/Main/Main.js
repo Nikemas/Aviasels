@@ -26,7 +26,10 @@ const tikets = [
     id: 7, price: '10 000', company: 'SuperEconom Airline',  way: '1д 21ч 35м', transfers: ['BSH', 'OSH']
 },
 { 
-  id: 8, price: '40 000', company: 'Top Airline',  way: '11ч 35м', transfers: ['BSH', 'NAR']
+    id: 8, price: '40 000', company: 'Top Airline',  way: '11ч 35м', transfers: ['BSH', 'NAR']
+},
+{ 
+    id: 9, price: '100 000', company: 'Ara Airline',  way: '1ч 35м', transfers: []
 }
 ]
 

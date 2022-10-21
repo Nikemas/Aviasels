@@ -17,7 +17,7 @@ export const Tiket = (props) => {
                 </div>
                 <div className={s.ticket__transfer}>
                     <div className={s.tiket__head}>Пересадки</div>
-                    <div className={s.tiket__transfer_name}>{transfers.join(', ')}</div>
+                    <div className={s.tiket__transfer_name}>{transfers.join(',')}</div>
                 </div>
             </div>
         </div>
