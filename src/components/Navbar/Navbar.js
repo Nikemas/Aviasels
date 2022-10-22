@@ -1,55 +1,51 @@
 import React from 'react'
+import { tikets } from '../utils/data'
 import s from './Navbar.module.css'
+const statickTikets = [...tikets]
 
 export const Navbar = ({renderData, tikets}) => {
     const [filter, setFilter] = React.useState({all: false, one: false, two: false, three: false,nonstop: false})
 
-    const fillHander = (event) => {
+    const filterHander = (event) => {
         switch (event) {
-            case 'all':
-                const al = tikets.filter( tiket => {
+            case 'two':
+                const filterByTwo = tikets.filter( tiket => {
+                    if(tiket.transfers.length === 2)
                     return tiket
                 })
-                setFilter({...al, all: !al.all})
-                break;
-            case 'nonstop':
-                const filter0 = tikets.filter( tiket => {
-                    if(tiket.transfers.length === 0){
-                        return tiket
-                    }
-                })
-                    setFilter({...filter0, one: !filter0.one})
-                    renderData(filter0)
-                break;
-            case 'one':
-                    const filter = tikets.filter( tiket => {
-                        if(tiket.transfers.length === 1){
-                            return tiket
-                        }
-                    })
-                    setFilter({...filter, one: !filter.one})
-                    renderData(filter)
-                break;
-            case 'two':
-                const filter2 = tikets.filter( tiket => {
-                    if(tiket.transfers.length === 2){
-                        return tiket
-                    }
-                })
-                setFilter({...filter2, two: !filter2.two})
-                renderData(filter2)
-                break;
                 
-                case 'three':
-                    const filter3 = tikets.filter( tiket => {
-                        if(tiket.transfers.length === 3){
-                            return tiket
-                        }
-                })
-                setFilter({...filter3, three: !filter3.three})
-                renderData(filter3)
+                if(!filter.two){
+                    setFilter({...filter, two: true})
+                    renderData(filterByTwo)
+                }else{
+                    setFilter({...filter, two: false})
+                    renderData(statickTikets)
+                }
+                
                 break;
-
+                case 'one':
+                    const filterByOne = tikets.filter( tiket => {
+                        if(tiket.transfers.length === 1)
+                        return tiket
+                    })
+                    
+                    if(!filter.one){
+                        setFilter({...filter, one: true})
+                        renderData(filterByOne)
+                    }else{
+                        setFilter({...filter, one: false})
+                        renderData(statickTikets)
+                    }
+                    
+                    break;
+                case 'all':
+                    if (!filter.all) {
+                        setFilter({all: true, nonstop: true, one: true, two: true, three: true,})
+                    }else{
+                        setFilter({all: false, nonstop: false, one: false, two: false, three: false,})
+                    }
+                    renderData(statickTikets)
+                    break;
             default:
                 break;
         }
@@ -66,7 +62,7 @@ export const Navbar = ({renderData, tikets}) => {
                      type="checkbox"
                     id={s.check}
                     checked={filter.all}
-                    onChange={() => fillHander('all')}
+                    onChange={() => filterHander('all')}
                     />
                     <span>Все</span>    
                 </label>    
@@ -75,7 +71,7 @@ export const Navbar = ({renderData, tikets}) => {
                     type="checkbox" 
                     id={s.check}
                     checked={filter.nonstop}
-                    onChange={() => fillHander('nonstop')}
+                    onChange={() => filterHander('nonstop')}
                     />
                     <span>Без пересадок</span>    
                 </label>  
@@ -84,7 +80,7 @@ export const Navbar = ({renderData, tikets}) => {
                     type="checkbox" 
                     id={s.check}
                     checked={filter.one}
-                    onChange={() => fillHander('one')}
+                    onChange={() => filterHander('one')}
                     />
                     <span>1 пересадка</span>    
                 </label>  
@@ -93,7 +89,7 @@ export const Navbar = ({renderData, tikets}) => {
                     type="checkbox" 
                     id={s.check}
                     checked={filter.two}
-                    onChange={() => fillHander('two')}
+                    onChange={() => filterHander('two')}
                     />
                     <span>2 пересадки</span>    
                 </label>  
@@ -102,7 +98,7 @@ export const Navbar = ({renderData, tikets}) => {
                         type="checkbox" 
                         id={s.check}
                         checked={filter.three}
-                        onChange={() => fillHander('three')}
+                        onChange={() => filterHander('three')}
                         />
                         <span>3 пересадки </span>    
                     </label>  
