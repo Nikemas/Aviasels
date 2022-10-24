@@ -5,7 +5,7 @@ import s from './App.css'
 
 export const App = () => {
   return (
-    <div>
+    <div className={s.wra}>
     <Header/>
     <Main/>
     </div>

@@ -7,47 +7,47 @@ export const Navbar = ({renderData, tikets}) => {
     const [filter, setFilter] = React.useState({all: false, one: false, two: false, three: false,nonstop: false})
 
     const filterHander = (event) => {
+        const filterByTwo = statickTikets.filter( tiket => {
+            if(tiket.transfers.length === 2)
+            return tiket
+        })
+        const filterByOne = statickTikets.filter( tiket => {
+            if(tiket.transfers.length === 1)
+            return tiket
+        })
         switch (event) {
             case 'two':
-                const filterByTwo = tikets.filter( tiket => {
-                    if(tiket.transfers.length === 2)
-                    return tiket
-                })
-                
+                setFilter({...filter, two: !filter.two})
                 if(!filter.two){
-                    setFilter({...filter, two: true})
+                    renderData([filterByOne ,...filterByTwo])
+                }else if(!filter.two){
                     renderData(filterByTwo)
-                }else{
-                    setFilter({...filter, two: false})
+                    renderData([...filterByOne, ...filterByTwo])
+            }else{
                     renderData(statickTikets)
                 }
                 
                 break;
-                case 'one':
-                    const filterByOne = tikets.filter( tiket => {
-                        if(tiket.transfers.length === 1)
-                        return tiket
-                    })
-                    
-                    if(!filter.one){
-                        setFilter({...filter, one: true})
-                        renderData(filterByOne)
-                    }else{
-                        setFilter({...filter, one: false})
-                        renderData(statickTikets)
-                    }
-                    
-                    break;
-                case 'all':
-                    if (!filter.all) {
-                        setFilter({all: true, nonstop: true, one: true, two: true, three: true,})
-                    }else{
-                        setFilter({all: false, nonstop: false, one: false, two: false, three: false,})
-                    }
+            case 'one':
+                setFilter({...filter,one: !filter.one})
+                if(!filter.one){
+                    renderData(filterByOne)
+                }
+                else{
                     renderData(statickTikets)
-                    break;
-            default:
+                }
+            
                 break;
+            case 'all':
+                if (!filter.all) {
+                    setFilter({all: true, nonstop: true, one: true, two: true, three: true,})
+                }else{
+                    setFilter({all: false, nonstop: false, one: false, two: false, three: false,})
+                }
+                renderData(statickTikets)
+                break;
+        default:
+            break;
         }
     }
 
