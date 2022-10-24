@@ -27,3 +27,10 @@ export const tikets = [
       id: 9, price: '100 000', company: 'Ara Airline',  way: '1ч 35м', transfers: []
   }
   ]
+
+export const filters = [
+    {id: 'all', name: 'Все'},
+    {id: 'nonstop', name: 'Без пересадок'},
+    {id: 'one', name: '1 пересадка'},
+    {id: 'two', name: '2 пересадка'},
+]
