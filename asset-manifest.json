@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/Aviasels/static/css/main.9f23de5a.css",
+    "main.js": "/Aviasels/static/js/main.b5b87ef4.js",
+    "static/media/logo.png": "/Aviasels/static/media/logo.e70e38ccb03daf0f38e9.png",
+    "index.html": "/Aviasels/index.html",
+    "main.9f23de5a.css.map": "/Aviasels/static/css/main.9f23de5a.css.map",
+    "main.b5b87ef4.js.map": "/Aviasels/static/js/main.b5b87ef4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9f23de5a.css",
+    "static/js/main.b5b87ef4.js"
+  ]
+}
